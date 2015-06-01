@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cassianoleal/gocd_api_client.svg?branch=master)](https://travis-ci.org/cassianoleal/gocd_api_client)
+
 # GocdApiClient
 
 Ruby client library to interact with ThoughtWorks Go's API
