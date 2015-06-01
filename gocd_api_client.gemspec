@@ -7,9 +7,8 @@ Gem::Specification.new do |spec|
   spec.name          = "gocd_api_client"
   spec.version       = GocdApiClient::VERSION
   spec.authors       = ["Cassiano Leal"]
-  spec.email         = ["cassiano.leal@gamesys.co.uk"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.email         = ["cassianoleal@gmail.com"]
+  spec.summary       = %q{Ruby client library to interact with ThoughtWorks Go's API}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,4 +19,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.2"
+  spec.add_development_dependency "guard", "~> 2.12"
+  spec.add_development_dependency "guard-rspec", "~> 4.5"
+  spec.add_development_dependency "ruby_gntp", "~> 0.3"
 end
