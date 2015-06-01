@@ -1,6 +1,6 @@
 # GocdApiClient
 
-TODO: Write a gem description
+Ruby client library to interact with ThoughtWorks Go's API
 
 ## Installation
 
