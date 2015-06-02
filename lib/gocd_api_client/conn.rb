@@ -4,8 +4,8 @@ module GocdApiClient
     attr_reader :credentials
 
     def initialize(url: nil, credentials: nil)
-      @url = url
       self.credentials = credentials unless credentials.nil?
+      @url = generate_url(url) unless url.nil?
     end
 
     def credentials=(hash)
@@ -14,5 +14,16 @@ module GocdApiClient
       end
       @credentials = hash
     end
+
+    private
+
+      def generate_url(url)
+        uri = URI(url)
+        unless self.credentials.nil?
+          uri.user = self.credentials[:username]
+          uri.password = self.credentials[:password]
+        end
+        uri.to_s
+      end
   end
 end

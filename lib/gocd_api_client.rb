@@ -4,6 +4,7 @@ module GocdApiClient
   autoload 'Exceptions',      'gocd_api_client/exceptions'
   autoload 'Conn',            'gocd_api_client/conn'
   autoload 'RestClient',      'gocd_api_client/rest_client'
+  autoload 'Endpoints',       'gocd_api_client/endpoints'
 
   class << self
     def connection
