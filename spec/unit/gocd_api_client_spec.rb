@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe GocdApiClient do
+  let(:connection) { subject.connection }
+
   describe '.connection' do
-    it { expect(subject.connection).to be_a(GocdApiClient::Conn) }
+    it { expect(connection).to be_a(GocdApiClient::Conn) }
   end
 
   describe '.connect!' do
@@ -15,17 +17,18 @@ describe GocdApiClient do
     end }
 
     context ':url' do
-      it { expect(subject.connection.url).to eq(url) }
+      it { expect(connection.url).to eq(url) }
     end
 
     context ':credentials' do
-      it { expect(subject.connection.credentials).to eq(credentials) }
+      it { expect(connection.credentials).to eq(credentials) }
     end
 
     context 'when missing URL' do
+      let(:connect!) { lambda { subject.connect! } }
       it do
         allow(GocdApiClient.connection).to receive(:url).and_return(nil)
-        expect(lambda { subject.connect! }).to raise_exception(GocdApiClient::Exceptions::MissingURL)
+        expect(connect!).to raise_exception(GocdApiClient::Exceptions::MissingURL)
       end
     end
   end
