@@ -12,6 +12,7 @@ module GocdApiClient
 
     def connect!
       yield connection if block_given?
+      raise Exceptions::MissingURL if connection.url.nil?
       connection
     end
   end
