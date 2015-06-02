@@ -4,16 +4,17 @@ describe GocdApiClient::Conn do
   describe '#credentials=' do
     let(:conn) { GocdApiClient::Conn.new(:url => 'http://something.com') }
 
-    describe "{ :username => 'user', :password => 'pwd' }" do
+    context "when valid" do
       let(:credentials) { { :username => 'user', :password => 'pwd' } }
       subject { lambda { conn.credentials = credentials } }
-      it { should_not raise_exception }
+      it { is_expected.not_to raise_exception }
+      # it { expect(subject.credentials) }
     end
 
-    describe "InvalidCredentials" do
+    context "when not valid" do
       let(:credentials) { { :invalid => 'credentials' } }
       subject { lambda { conn.credentials = credentials } }
-      it { should raise_exception(GocdApiClient::Exceptions::InvalidCredentials) }
+      it { is_expected.to raise_exception(GocdApiClient::Exceptions::InvalidCredentials) }
     end
   end
 end

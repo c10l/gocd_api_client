@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe GocdApiClient do
-  describe '#connection' do
+  describe '.connection' do
     it { expect(subject.connection).to be_a(GocdApiClient::Conn) }
   end
 
-  describe '#connect!' do
+  describe '.connect!' do
     let(:credentials) { {:username => 'user', :password => 'pwd'} }
     let(:url) { 'http://api.com' }
 
@@ -22,7 +22,7 @@ describe GocdApiClient do
       it { expect(subject.connection.credentials).to eq(credentials) }
     end
 
-    context 'MissingURL' do
+    context 'when missing URL' do
       it do
         allow(GocdApiClient.connection).to receive(:url).and_return(nil)
         expect(lambda { subject.connect! }).to raise_exception(GocdApiClient::Exceptions::MissingURL)
