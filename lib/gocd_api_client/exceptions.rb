@@ -1,6 +1,9 @@
 module GocdApiClient
   module Exceptions
     class InvalidCredentials < StandardError
+      def initialize
+        super("Credentials should be in the form { :username => 'user', :password => 'pwd' }")
+      end
     end
 
     class MissingURL < StandardError
